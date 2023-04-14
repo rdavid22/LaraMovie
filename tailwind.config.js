@@ -15,6 +15,7 @@ module.exports = {
             },
             backgroundImage: {
                 'hero-image': "url('/resources/img/hero.jpg')",
+                'default-image' : "url('/resources/img/default.webp')"
             }
         },
     },

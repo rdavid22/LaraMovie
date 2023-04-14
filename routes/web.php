@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Movie;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/film/{name}', [MovieController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

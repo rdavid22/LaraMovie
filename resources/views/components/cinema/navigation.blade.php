@@ -2,14 +2,14 @@
     <div class="text-center p-8 bg-black">
         @auth
             <a href="{{ url('/home') }}"
-                class="text-xl text-white hover:text-red-500 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
+                class="text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2">Home</a>
         @else
             <a href="{{ route('login') }}"
-                class="text-xl text-white hover:text-red-500 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Bejelentkezés</a>
+                class="text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2">Bejelentkezés</a>
 
             @if (Route::has('register'))
                 <a href="{{ route('register') }}"
-                    class="ml-4 text-xl text-white hover:text-red-500 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Regisztráció</a>
+                    class="ml-4 text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2">Regisztráció</a>
             @endif
         @endauth
     </div>
