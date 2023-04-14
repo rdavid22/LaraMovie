@@ -11,8 +11,11 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                'sans': 'netflix',
             },
+            backgroundImage: {
+                'hero-image': "url('/resources/img/hero.jpg')",
+            }
         },
     },
 
