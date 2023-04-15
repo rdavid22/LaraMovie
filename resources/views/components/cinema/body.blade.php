@@ -1,6 +1,4 @@
-<section>
-    <div class="flex flex-col min-h-screen bg-black md:p-52 items-center text-center">
-        <div class="text-4xl tracking-widest text-red-500">Filmek</div>
+
         
         <div class="flex flex-row flex-wrap justify-center md:justify-between w-full">
             <div class="hover:bg-gray-600 p-3 rounded-lg">

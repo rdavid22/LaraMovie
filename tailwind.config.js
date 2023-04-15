@@ -14,7 +14,7 @@ module.exports = {
                 'sans': 'netflix',
             },
             backgroundImage: {
-                'hero-image': "url('/resources/img/hero.jpg')",
+                'hero-image': "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),url('/resources/img/hero.jpg')",
                 'default-image' : "url('/resources/img/default.webp')"
             }
         },

@@ -1,6 +1,3 @@
-<section>
+<section id="hero" class="h-96 bg-hero-image">
     <x-cinema.navigation />
-    <div class="h-screen bg-hero-image">
-        <div class="h-full w-full bg-gradient-to-b from-transparent via-transparent to-black"></div>
-    </div>
 </section>
