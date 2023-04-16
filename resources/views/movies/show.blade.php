@@ -1,5 +1,7 @@
-<x-cinema.defaultlayout>
+@extends('layouts.cinema')
+
+@section('content')
     <x-cinema.hero />
     asd
     {{ $movie['title'] }}
-</x-cinema.defaultlayout>
+@endsection

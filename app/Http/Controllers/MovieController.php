@@ -4,20 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Movie;
-use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
-    public function index()
+    // Show homepage
+    public function home()
     {
-        $movies = Movie::all();
-        return view('welcome', [
-            'movies' => $movies
+        return view('home', [
+            'movies' => Movie::all()
         ]);
     }
 
     // Show all movie
-    public function all()
+    public function index()
     {
         return view('movies.index', [
             'movies' => Movie::all()
@@ -28,8 +27,8 @@ class MovieController extends Controller
     public function show(string $movie_title)
     {
         $movie = Movie::where('title', $movie_title)->first();
-
-        if ($movie != null) {
+       
+        if ($movie) {
             return view('movies.show', [
                 'movie' => $movie
             ]);

@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[MovieController::class, 'index']);
+Route::get('/',[MovieController::class, 'home']);
 
-Route::get('/filmek/osszes', [MovieController::class, 'all']);
+Route::get('/filmek/osszes', [MovieController::class, 'index']);
 
-Route::get('/filmek/{name}', [MovieController::class, 'show']);
+Route::get('/filmek/{movie}', [MovieController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
