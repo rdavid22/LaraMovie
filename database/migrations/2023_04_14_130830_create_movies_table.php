@@ -15,9 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->year('year');
-            $table->string('cover');
-            $table->string('genre');
+            $table->year('cast');
+            $table->year('director');
+            $table->integer('length');
             $table->integer('age');
+            $table->string('genre');
+            $table->string('cover');
+            $table->longText('description');
             $table->timestamps();
         });
     }

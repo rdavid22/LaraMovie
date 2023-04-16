@@ -19,9 +19,13 @@ class MovieFactory extends Factory
         return [
             'title' => $this->faker->realText(10),
             'year' => $this->faker->year(),
-            'cover' => $this->faker->url(),
+            'cast' => $this->faker->randomElement(['Clancy Brown', 'Harbringer', 'Ian McShane', 'Winston', 'Marko Zaror', 'Chidi', 'Bill Skarsgard', 'Marquis']),
+            'director' => $this->faker->lastName(),
+            'length' => $this->faker->randomNumber(),
+            'age' => $this->faker->month(),
             'genre' => $this->faker->randomElement(['Akciófilm', 'Dráma', 'Kalandfilm', 'Komédia', 'Dráma', 'Fantasy', 'Történelmi', 'Musical', 'Romantikus', 'Sci-Fi', 'Western', 'Családi']),
-            'age' => $this->faker->month()
+            'cover' => $this->faker->url(),
+            'description' => $this->faker->realText(100)
         ];
     }
 }
