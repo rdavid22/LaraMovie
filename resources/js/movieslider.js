@@ -4,24 +4,59 @@ import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 document.addEventListener('DOMContentLoaded', function () {
     let splide = new Splide('.splide', {
         type: 'slide',
-        perPage: 4,
         focus: 'center',
+        perPage: 7,
+        autoWidth: true,
+        trimSpace  : false,
         gap: '1em',
         rewind: true,
         autoScroll: {
-            speed: 2,
-            autoStart: true,
+            speed: 1,
+            autoStart: false,
             rewind: true
         },
+        breakpoints: {
+            
+            300: {
+                perPage: 1,
+            },
+            600: {
+                perPage: 2,
+            },
+            860: {
+                perPage: 3,
+            },
+            1024: {
+                perPage: 4,
+            },
+            1300: {
+                perPage: 5,
+            },
+            1536: {
+                perPage: 6,
+            }
+        }
     });
 
     var bar = splide.root.querySelector('.my-carousel-progress-bar');
     let nodeList = document.querySelectorAll('.splide__slide');
 
-    // Bugfix for the 'fewer element is available than the setup option'
+    // Bugfix for the 'fewer element is available than the setup option' error & pause auto scroll
     splide.on('mounted', function () {
         if (splide.length <= splide.options.perPage) {
             splide.options.perPage = splide.length;
+            splide.Components.AutoScroll.pause();
+        }
+    });
+
+    // Pause AutoScroll animation on mobile
+    splide.on('mounted updated', function () {
+        var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        if (width < 768) {
+            splide.Components.AutoScroll.pause();
+        }
+        else{
+            splide.Components.AutoScroll.play();
         }
     });
 
@@ -33,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
         bar.style.width = String(100 * rate) + '%';
 
         if (nodeList.length > 1) {
-            
+
             // Remove all color
             for (let i = 0; i < nodeList.length; i++) {
                 document.getElementById(nodeList[i].id).classList.remove('bg-yellow-500');

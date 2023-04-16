@@ -12,16 +12,16 @@
 
 <body class="antialiased bg-black">
     <x-cinema.hero />
-    <section id="body" class="min-h-screen md:p-10">
-        <div class="flex flex-col items-center text-center mb-10">
-            <div class="text-4xl tracking-widest text-red-500 my-10">Filmek</div>
+    <section id="action_movies">
+        <div class="flex flex-col h-screen justify-around">
+            <div class="text-4xl tracking-widest text-red-500 mt-48 text-center md:text-start md:ml-20">Akció</div>
 
-            {{-- Akciófilmek --}}
-            <section class="splide bg-dark max-w-screen-lg mx-auto">
+            <!-- Akciófilmek -->
+            <section class="splide bg-dark w-full mx-auto mb-20">
                 <div class="splide__track my-10">
                     <ul class="splide__list">
                         @foreach ($movies as $movie)
-                            @if ($movie['genre'] == 'Akció')
+                            @if ($movie['genre'] == 'Akciófilm')
                             <x-cinema.movielist>
                                 <x-slot name="cover">{{ $movie['cover'] }}</x-slot>
                                 <x-slot name="title">{{ $movie['title'] }}</x-slot>
@@ -34,7 +34,7 @@
                 </div>
 
                 <!-- Add the progress bar element -->
-                <div class="bg-gray-400">
+                <div class="bg-gray-400 w-1/2 mx-auto">
                     <div class="bg-yellow-400 h-0.5  transition-all w-0 my-carousel-progress-bar"></div>
                 </div>
             </section>
