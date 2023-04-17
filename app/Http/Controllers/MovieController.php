@@ -7,14 +7,24 @@ use App\Models\Movie;
 
 class MovieController extends Controller
 {
-    // Show all movie
+    // Show all, or filtered category movie
     public function index()
     {
         if (request()->kategoria) {
-            return view('movies.index', [
-                'movies' => Movie::latest()->filter(request(['kategoria']))->get(),
-                'genre_category' => request()->kategoria
-            ]);
+            $query_result = Movie::latest()->filter(request(['kategoria']))->get();
+
+            if (count($query_result) == 0) {
+                return view('movies.index', [
+                    'genre_category' => request()->kategoria,
+                    'error' => 'Nincs találat!'
+                ]);
+
+            } else {
+                return view('movies.index', [
+                    'genre_category' => request()->kategoria,
+                    'movies' => $query_result
+                ]);
+            }
         } else {
             return view('movies.index', [
                 'movies' => Movie::all()
