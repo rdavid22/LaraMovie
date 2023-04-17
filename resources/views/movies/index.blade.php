@@ -5,7 +5,6 @@
 
     @if (isset($error))
         <x-cinema.not-found> {{ $error }} </x-cinema.not-found>
-
     @elseif(isset($genre_category))
         <x-cinema.movielist-wrapper :moviesArray="$movies">
             <x-slot name="section_name">movies</x-slot>
