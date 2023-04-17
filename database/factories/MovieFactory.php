@@ -16,6 +16,7 @@ class MovieFactory extends Factory
      */
     public function definition(): array
     {
+        $available_genres = ['Akciófilm', 'Dráma', 'Kalandfilm', 'Komédia', 'Dráma', 'Fantasy', 'Történelmi', 'Musical', 'Romantikus', 'Sci-Fi', 'Western', 'Családi']; 
         return [
             'title' => $this->faker->realText(10),
             'year' => $this->faker->year(),
@@ -23,7 +24,7 @@ class MovieFactory extends Factory
             'director' => $this->faker->lastName(),
             'length' => $this->faker->randomNumber(),
             'age' => $this->faker->month(),
-            'genre' => $this->faker->randomElement(['Akciófilm', 'Dráma', 'Kalandfilm', 'Komédia', 'Dráma', 'Fantasy', 'Történelmi', 'Musical', 'Romantikus', 'Sci-Fi', 'Western', 'Családi']),
+            'genre' => $this->faker->randomElement($available_genres) . ',' . $this->faker->randomElement($available_genres) . ',' . $this->faker->randomElement($available_genres),
             'cover' => $this->faker->url(),
             'description' => $this->faker->realText(100)
         ];

@@ -11,11 +11,11 @@
                         @if ($filter_by == 'none')
                             <x-cinema.movielist :movieAttr="$movie" />
                             
-                        {{-- Show only specific genre movies --}}
-                        @elseif ($movie->genre == $filter_by)
+                        {{-- Show movies which contains a specific genre --}}
+                        @elseif (Str::contains($movie->genre,explode(',',$filter_by)))
                             <x-cinema.movielist :movieAttr="$movie" />
                         @endif
-                        
+
                     @endforeach
                 </ul>
             </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Movie;
@@ -16,11 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[MovieController::class, 'home']);
+Route::get('/',[HomeController::class, 'index']);
 
 Route::get('/filmek/osszes', [MovieController::class, 'index']);
 
 Route::get('/filmek/{movie}', [MovieController::class, 'show']);
+
+// Route::get('/filmek/kategoriak/{category}')
 
 Route::get('/dashboard', function () {
     return view('dashboard');
