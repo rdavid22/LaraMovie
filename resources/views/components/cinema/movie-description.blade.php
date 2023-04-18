@@ -16,7 +16,7 @@
 
 
 <section id="movie_description"
-    class="flex flex-col tracking-widest max-w-screen-lg mx-auto space-y-5 flex-wrap min-h-screen text-xl items-center justify-center text-red-600 pt-20 px-20">
+    class="flex flex-col font-roboto tracking-widest max-w-screen-lg mx-auto space-y-5 flex-wrap min-h-screen text-xl items-center justify-center text-white pt-20 px-3 md:px-20">
 
     {{-- Előző oldalak --}}
     <div class="text-lg self-start tracking-widest">
@@ -26,29 +26,32 @@
     </div>
 
     {{-- Film címe és vásárlás gomb --}}
-    <div class="flex flex-row justify-between w-full">
+    <div class="flex flex-row flex-wrap justify-between w-full">
         <div class="flex flex-row space-x-2">
-            <div class="text-5xl">{{ $singleMovie->title }}</div>
+            <div class="font-cheeky text-5xl">{{ $singleMovie->title }}</div>
             <img src="{{ $image_to_load }}" class="w-6 h-6 my-auto">
         </div>
-        <button class="p-3 text-red-500 outline outline-2 outline-red-500 hover:bg-red-600 hover:text-white transition-all rounded-sm tracking-wider">Jegyvásárlás</button>
+        <button
+            class="font-sans p-3 text-red-600 outline outline-2 outline-red-600 hover:bg-red-600 hover:text-white transition-all rounded-sm tracking-widest">Jegyvásárlás</button>
     </div>
 
     {{-- Előzetes videó --}}
-    <iframe class="w-full  aspect-video" src="{{ $singleMovie->trailer }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe class="w-full  aspect-video" src="{{ $singleMovie->trailer }}" title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
 
     {{-- Leírás és ikonok --}}
-    <div class="self-start text-4xl py-5">Leírás: {{ $singleMovie->title }}</div>
+    <div class="self-center font-cheeky text-5xl py-5">Leírás</div>
 
     {{-- Leírás szöveg --}}
-    <div class="flex flex-row flex-wrap justify-between w-full">
-        <div class="flex flex-col">
-            <div class="flex flex-row justify-between">
-              <div>Játékidő: {{$singleMovie->length}} perc</div>
-              <div></div>
+    <div class="flex flex-row flex-wrap md:flex-nowrap justify-center space-y-5 md:space-y-0 md:justify-between md:space-x-5 lg:space-x-0 w-full pb-10">
+        <div class="flex flex-col justify-evenly space-y-5">
+            <div class="font-roboto-bold flex flex-row justify-between">
+                <div>Játékidő: {{ $singleMovie->length }} perc</div>
+                <div></div>
             </div>
-            <div>asd</div>
-            <table class="table-auto">
+            <p class="text-justify max-w-lg text-base">{{ $singleMovie->description }}</p>
+            <table class="table-auto text-base">
                 <tbody>
                     <tr>
                         <td>Eredeti cím:</td>
@@ -81,8 +84,8 @@
                 </tbody>
             </table>
         </div>
-        <div class="">
-            <img src="{{ $singleMovie->cover_big }}">
+        <div>
+            <img src="{{ $singleMovie->cover_big }}" class="m-auto">
         </div>
     </div>
 </section>

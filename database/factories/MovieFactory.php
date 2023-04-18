@@ -30,7 +30,7 @@ class MovieFactory extends Factory
             'cover' => $this->faker->url(),
             'cover_big' => $this->faker->url(),
             'trailer' => $this->faker->url(),
-            'description' => $this->faker->realText(100)
+            'description' => $this->faker->realText(250)
         ];
     }
 }

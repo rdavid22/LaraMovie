@@ -12,10 +12,14 @@ module.exports = {
         extend: {
             fontFamily: {
                 'sans': 'netflix',
+                'cheeky': 'cheeky',
+                'roboto': 'roboto',
+                'roboto-light': 'roboto-light',
+                'roboto-bold': 'roboto-bold'
             },
             backgroundImage: {
                 'hero-image': "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),url('/resources/img/hero.jpg')",
-                'default-image' : "url('/resources/img/default.webp')"
+                'default-image': "url('/resources/img/default.webp')"
             }
         },
     },
