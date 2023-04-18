@@ -16,14 +16,16 @@ class MovieFactory extends Factory
      */
     public function definition(): array
     {
-        $available_genres = ['Akciófilm', 'Dráma', 'Kalandfilm', 'Komédia', 'Dráma', 'Fantasy', 'Történelmi', 'Musical', 'Romantikus', 'Sci-Fi', 'Western', 'Családi']; 
+        $available_genres = ['Akciófilm', 'Dráma', 'Kalandfilm', 'Komédia', 'Dráma', 'Fantasy', 'Történelmi', 'Musical', 'Romantikus', 'Sci-Fi', 'Western', 'Családi'];
+        $available_pcrs = [6, 16, 12, 18];
+        $available_titles = ['A szörny', 'Szupercella', 'Suzume', 'Renfield', 'Amitől félünk', 'A pápa ördögűzője', 'Gyönyörű sorscsapás', 'Hat hét', '13 ördögűzés', 'Éjszakai átutazók', 'Műanyag égbolt'];
         return [
-            'title' => $this->faker->realText(10),
+            'title' => $this->faker->randomElement($available_titles),
             'year' => $this->faker->year(),
             'cast' => $this->faker->randomElement(['Clancy Brown', 'Harbringer', 'Ian McShane', 'Winston', 'Marko Zaror', 'Chidi', 'Bill Skarsgard', 'Marquis']),
             'director' => $this->faker->lastName(),
-            'length' => $this->faker->randomNumber(),
-            'age' => $this->faker->month(),
+            'length' => $this->faker->numberBetween(45,300),
+            'age' => $this->faker->randomElement($available_pcrs),
             'genre' => $this->faker->randomElement($available_genres) . ', ' . $this->faker->randomElement($available_genres) . ', ' . $this->faker->randomElement($available_genres),
             'cover' => $this->faker->url(),
             'cover_big' => $this->faker->url(),
