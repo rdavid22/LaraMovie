@@ -24,8 +24,10 @@ class MovieFactory extends Factory
             'director' => $this->faker->lastName(),
             'length' => $this->faker->randomNumber(),
             'age' => $this->faker->month(),
-            'genre' => $this->faker->randomElement($available_genres) . ',' . $this->faker->randomElement($available_genres) . ',' . $this->faker->randomElement($available_genres),
+            'genre' => $this->faker->randomElement($available_genres) . ', ' . $this->faker->randomElement($available_genres) . ', ' . $this->faker->randomElement($available_genres),
             'cover' => $this->faker->url(),
+            'cover_big' => $this->faker->url(),
+            'trailer' => $this->faker->url(),
             'description' => $this->faker->realText(100)
         ];
     }

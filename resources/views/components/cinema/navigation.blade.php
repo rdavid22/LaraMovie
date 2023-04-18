@@ -15,11 +15,11 @@
     </div>
 
     <div class="bg-yellow-500">
-        <div class="max-w-md mx-auto flex justify-around text-lg text-black">
-            <a href="/filmek/osszes" class="border-x border-l-black border-r-black my-2.5 p-2.5 hover:text-white">Összes</a>
-            <a href="#" class="border-x border-l-black border-r-black my-2.5 p-2.5 hover:text-white">Legújabbak</a>
-            <a href="#" class="border-x border-l-black border-r-black my-2.5 p-2.5 hover:text-white">IMAX</a>
-            <a href="#" class="border-x border-l-black border-r-black my-2.5 p-2.5 hover:text-white">5D</a>
+        <div class="max-w-md mx-auto flex justify-around text-lg text-black ">
+            <a href="/filmek/osszes" class="border-x border-l-black border-r-black my-2.5 px-2 hover:text-white">Összes</a>
+            <a href="#" class="border-x border-l-black border-r-black my-2.5 px-2 hover:text-white">Legújabbak</a>
+            <a href="#" class="border-x border-l-black border-r-black my-2.5 px-2 hover:text-white">IMAX</a>
+            <a href="#" class="border-x border-l-black border-r-black my-2.5 px-2 hover:text-white">5D</a>
         </div>
     </div>
 </div>

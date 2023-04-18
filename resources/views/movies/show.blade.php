@@ -2,6 +2,5 @@
 
 @section('content')
     <x-cinema.hero />
-    asd
-    {{ $movie['title'] }}
+    <x-cinema.movie-description :singleMovie="$movie" />
 @endsection

@@ -19,6 +19,8 @@ class Movie extends Model
         'length',
         'genre',
         'cover',
+        'cover_big',
+        'trailer',
         'description'
     ];
     

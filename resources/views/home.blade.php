@@ -4,9 +4,8 @@
     <x-cinema.hero />
     
     {{-- Családi filmek --}}
-    <x-cinema.movielist-wrapper :moviesArray="$movies">
-        <x-slot name="section_name">action_movies</x-slot>
+    <x-cinema.movielist-slider-wrapper :moviesArray="$family">
+        <x-slot name="section_name">family_movies</x-slot>
         <x-slot name="slider_heading">Családi filmek</x-slot>
-        <x-slot name="filter_by">Családi</x-slot>
-    </x-cinema.movielist-wrapper>
+    </x-cinema.movielist-slider-wrapper>
 @endsection

@@ -16,13 +16,10 @@ class MovieSeeder extends Seeder
     {
         Movie::factory(100)->create(
             [
-                'cover' => 'https://www.cinemacity.hu/xmedia-cw/repo/feats/posters/5544O2R1-md.jpg'
+                'cover' => 'https://www.cinemacity.hu/xmedia-cw/repo/feats/posters/5544O2R1-md.jpg',
+                'cover_big' => 'https://www.cinemacity.hu/xmedia-cw/repo/feats/posters/5544O2R1-lg.jpg',
+                'trailer' => 'https://www.youtube-nocookie.com/embed/_qAJMXfL6o0',
             ]
         );
-        Movie::factory()->create([
-            'title' => 'sarkanyok',
-            'genre' => 'Akció',
-            'cover' => 'https://www.cinemacity.hu/xmedia-cw/repo/feats/posters/5544O2R1-md.jpg'
-        ]);
     }
 }

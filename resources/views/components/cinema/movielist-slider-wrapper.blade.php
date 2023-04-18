@@ -5,7 +5,7 @@
             <div class="splide__track my-10">
                 <ul class="splide__list">
                     @foreach ($moviesArray as $movie)
-                        <x-cinema.movielist :movieAttr="$movie" />
+                        <x-cinema.movielist-slider :movieAttr="$movie" />
                     @endforeach
                 </ul>
             </div>

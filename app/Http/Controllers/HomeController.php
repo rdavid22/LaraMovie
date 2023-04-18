@@ -10,8 +10,9 @@ class HomeController extends Controller
     // Show homepage
     public function index()
     {
+        $genre_family = Movie::where('genre', 'like', '%' . 'Családi' . '%')->get();
         return view('home', [
-            'movies' => Movie::all()
+            'family' => $genre_family
         ]);
     }
 }

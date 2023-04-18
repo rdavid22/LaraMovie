@@ -21,6 +21,8 @@ return new class extends Migration
             $table->integer('age');
             $table->string('genre');
             $table->string('cover');
+            $table->string('cover_big');
+            $table->string('trailer');
             $table->longText('description');
             $table->timestamps();
         });
