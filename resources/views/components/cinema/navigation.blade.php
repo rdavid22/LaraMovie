@@ -1,4 +1,4 @@
-<div class="flex flex-col fixed top-0 left-0 right-0 tracking-widest">
+<div class="flex flex-col tracking-widest">
     <div class="text-center p-8 bg-black">
         @auth
             <a href="{{ url('/home') }}"
@@ -14,12 +14,12 @@
         @endauth
     </div>
 
-    <div class="bg-yellow-500">
+    {{-- <div class="bg-yellow-500">
         <div class="max-w-md mx-auto flex justify-around text-lg text-black ">
             <a href="/filmek/osszes" class="border-x border-l-black border-r-black my-2.5 px-2 hover:text-white">Összes</a>
             <a href="#" class="border-x border-l-black border-r-black my-2.5 px-2 hover:text-white">Legújabbak</a>
             <a href="#" class="border-x border-l-black border-r-black my-2.5 px-2 hover:text-white">IMAX</a>
             <a href="#" class="border-x border-l-black border-r-black my-2.5 px-2 hover:text-white">5D</a>
         </div>
-    </div>
+    </div> --}}
 </div>

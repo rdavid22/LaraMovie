@@ -1,7 +1,7 @@
 @extends('layouts.cinema')
 
 @section('content')
-    <x-cinema.hero />
+    <x-cinema.header />
     
     {{-- Családi filmek --}}
     <x-cinema.movielist-slider-wrapper :moviesArray="$family">

@@ -1,7 +1,7 @@
 @extends('layouts.cinema')
 
 @section('content')
-    <x-cinema.hero />
+    <x-cinema.header />
 
     @if (isset($error))
         <x-cinema.not-found> {{ $error }} </x-cinema.not-found>
