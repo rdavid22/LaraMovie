@@ -7,7 +7,10 @@
             <a href=" {{ Route('all_movie') }} ">Filmek &gt; </a>
             Összes
         </div>
-        <x-cinema.category-filter />
+        <div class="flex flex-col md:flex-row md:space-x-5 flex-wrap items-center">
+            <x-cinema.category-filter />
+            <x-cinema.search-bar />
+        </div>
     </div>
 
     <div class="text-4xl tracking-widest text-red-500 text-center">Összes film</div>

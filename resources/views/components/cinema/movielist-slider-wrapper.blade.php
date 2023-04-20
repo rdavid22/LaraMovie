@@ -11,9 +11,14 @@
                     @endif
                     {{$slider_heading}} 
                 </div>
-                <x-cinema.category-filter />
+                
+                <div class="flex flex-col md:flex-row md:space-x-5 flex-wrap items-center">
+                    <x-cinema.category-filter />
+                    <x-cinema.search-bar />
+                </div>
+
                 @if(isset($count_of_result))
-                    <p>Eredmény: {{$count_of_result}} találat</p>
+                    <p class="my-5">Eredmény: {{$count_of_result}} találat</p>
                 @endif
             </div>
         @endif
