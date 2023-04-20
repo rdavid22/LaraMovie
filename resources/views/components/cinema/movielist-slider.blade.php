@@ -3,7 +3,7 @@
         <img class="mx-auto" src="{{ $movieAttr->cover }}">
 
         <div class=" py-2 text-start" id="splide_movie_description">
-            <p class="font-cheeky text-lg" >{{ $movieAttr->title }}</p>
+            <p class="font-roboto text-lg" >{{ $movieAttr->title }}</p>
             <p class="font-roboto  text-sm truncate">{{ $movieAttr->genre }}</p>
             <p class=" text-sm">{{ $movieAttr->year }}</p>
         </div>
