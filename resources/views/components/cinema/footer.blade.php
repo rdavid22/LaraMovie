@@ -101,6 +101,6 @@
 
     <hr class="w-4/5 mx-auto border-1 border-black">
     <div class="py-10 text-center text-xl">
-        © 2023 - LaraGym
+        © 2023 - LaraMovie
     </div>
 </footer>
