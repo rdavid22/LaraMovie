@@ -6,10 +6,15 @@
                 <div class="text-lg">
                     <a href=" {{ Route('home') }} ">Kezdőlap &gt; </a>
                     <a href=" {{ Route('all_movie') }} ">Filmek &gt; </a>
-                    <span>Kategória &gt;</span>
+                    @if(isset($count_of_result) == false)
+                        <span>Kategória &gt;</span>
+                    @endif
                     {{$slider_heading}} 
                 </div>
                 <x-cinema.category-filter />
+                @if(isset($count_of_result))
+                    <p>Eredmény: {{$count_of_result}} találat</p>
+                @endif
             </div>
         @endif
 

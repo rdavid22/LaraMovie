@@ -29,10 +29,9 @@ class Movie extends Model
             $query->where('genre', 'like', '%' . request('kategoria') . '%');
         }
 
-        // if($filters['search'] ?? false) {
-        //     $query->where('title', 'like', '%' . request('search') . '%')
-        //         ->orWhere('description', 'like', '%' . request('search') . '%')
-        //         ->orWhere('tags', 'like', '%' . request('search') . '%');
-        // }
+        if($filters['kereses'] ?? false) {
+            $query->where('title', 'like', '%' . request('kereses') . '%')
+                ->orWhere('description', 'like', '%' . request('kereses') . '%');
+        }
     }
 }

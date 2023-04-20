@@ -10,8 +10,8 @@ class MovieController extends Controller
     // Show all, or filtered category movie
     public function index()
     {
-        if (request()->kategoria) {
-            $query_result = Movie::latest()->filter(request(['kategoria']))->get();
+        if (request()->kategoria || request()->kereses) {
+            $query_result = Movie::latest()->filter(request(['kategoria', 'kereses']))->get();
 
             if (count($query_result) == 0) {
                 return view('movies.index', [
@@ -19,6 +19,13 @@ class MovieController extends Controller
                     'error' => 'Nincs találat!'
                 ]);
 
+            } elseif (request()->kereses) {
+                return view('movies.index', [
+                    'search' => 'true',
+                    'movies' => $query_result,
+                    'search_query' => request()->kereses,
+                    'count_of_result' => count($query_result)
+                ]);
             } else {
                 return view('movies.index', [
                     'genre_category' => request()->kategoria,
