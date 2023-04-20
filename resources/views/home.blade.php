@@ -9,4 +9,6 @@
         <x-slot name="slider_heading">Családi filmek</x-slot>
         <x-slot name="homepage">true</x-slot>
     </x-cinema.movielist-slider-wrapper>
+
+    <x-cinema.footer />
 @endsection

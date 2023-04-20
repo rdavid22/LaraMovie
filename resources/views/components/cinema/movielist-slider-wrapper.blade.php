@@ -1,5 +1,5 @@
 <section id="{{ $section_name }}">
-    <div class="flex flex-col h-screen pt-32 lg:pt-24">
+    <div class="flex flex-col  pt-32 lg:pt-24">
         
         @if (isset($homepage) == false)
             <div class="flex flex-col tracking-widest font-roboto mx-5 text-white items-center md:items-start md:w-11/12 md:mx-auto">

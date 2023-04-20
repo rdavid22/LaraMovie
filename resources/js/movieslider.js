@@ -72,12 +72,16 @@ document.addEventListener('DOMContentLoaded', function () {
             // Remove all color
             for (let i = 0; i < nodeList.length; i++) {
                 document.getElementById(nodeList[i].id).classList.remove('bg-yellow-500');
+                document.getElementById(nodeList[i].id).classList.remove('text-black');
                 document.getElementById(nodeList[i].id).classList.add('hover:bg-gray-600');
+                document.getElementById(nodeList[i].id).classList.add('text-white');
             }
 
             // Add color to currently active element
             nodeList[splide.index].classList.add('bg-yellow-500');
+            nodeList[splide.index].classList.add('text-black');
             nodeList[splide.index].classList.remove('hover:bg-gray-600');
+            nodeList[splide.index].classList.remove('text-white');
         }
     })
 

@@ -30,4 +30,6 @@
             </div>
         @endforeach
     </div>
+    <x-cinema.footer />
 </div>
+
