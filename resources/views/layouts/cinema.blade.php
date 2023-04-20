@@ -10,6 +10,7 @@
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     @vite('resources/js/movieslider.js')
+    @vite('resources/js/hamburger.js')
 </head>
 
 <body class="antialiased bg-black min-h-screen">

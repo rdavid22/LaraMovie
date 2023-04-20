@@ -13,8 +13,8 @@
 </head>
 
 <body class="font-sans text-red-500 antialiased h-screen ">
-    <x-cinema.header />
-    <section id="login_register_form" class="flex bg-default-image h-[calc(100vh-92px)] overflow-auto">
+    <x-cinema.navigation />
+    <section id="login_register_form" class="flex bg-default-image h-full overflow-auto">
         <div class="flex flex-col justify-center items-center pt-6 sm:pt-0 m-auto">
             <div>
                 <a href="/">

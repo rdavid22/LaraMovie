@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         focus: 'center',
         perPage: 7,
         autoWidth: true,
-        trimSpace  : false,
+        trimSpace: false,
         gap: '1em',
         rewind: true,
         autoScroll: {
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
             rewind: true
         },
         breakpoints: {
-            
+
             300: {
                 perPage: 1,
             },
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (width < 768) {
             splide.Components.AutoScroll.pause();
         }
-        else{
+        else {
             splide.Components.AutoScroll.play();
         }
     });

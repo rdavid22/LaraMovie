@@ -1,25 +1,52 @@
-<div class="flex flex-col tracking-widest">
-    <div class="text-center p-8 bg-black">
-        @auth
-            <a href="{{ url('/home') }}"
-                class="text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2">Home</a>
-        @else
-            <a href="{{ route('login') }}"
-                class="text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2">Bejelentkezés</a>
+<nav id="heromenu"
+    class="fixed z-50 top-0 flex w-full items-center justify-between text-white focus:text-yellow-300 md:flex-wrap md:justify-start bg-black shadow-lg"
+    data-te-navbar-ref>
+    <div class="flex w-full flex-wrap items-center justify-between m-5">
 
-            @if (Route::has('register'))
-                <a href="{{ route('register') }}"
-                    class="ml-4 text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2">Regisztráció</a>
-            @endif
-        @endauth
-    </div>
-
-    {{-- <div class="bg-yellow-500">
-        <div class="max-w-md mx-auto flex justify-around text-lg text-black ">
-            <a href="/filmek/osszes" class="border-x border-l-black border-r-black my-2.5 px-2 hover:text-white">Összes</a>
-            <a href="#" class="border-x border-l-black border-r-black my-2.5 px-2 hover:text-white">Legújabbak</a>
-            <a href="#" class="border-x border-l-black border-r-black my-2.5 px-2 hover:text-white">IMAX</a>
-            <a href="#" class="border-x border-l-black border-r-black my-2.5 px-2 hover:text-white">5D</a>
+        <!-- Hamburger icon -->
+        <div class="flex items-center h-6 w-6 justify-center hamburger-icon lg:hidden m-2" id="burgir"
+            data-te-collapse-init data-te-target="#navbarSupportedContentX" aria-controls="navbarSupportedContentX"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <div class="icon-1" id="a"></div>
+            <div class="icon-2" id="b"></div>
+            <div class="icon-3" id="c"></div>
+            <div class="clear"></div>
         </div>
-    </div> --}}
-</div>
+        <!-- Hamburger icon -->
+
+        <!-- Links -->
+        <div class="!visible hidden grow basis-[100%] items-center lg:!flex lg:basis-auto mt-5 lg:mt-0"
+            id="navbarSupportedContentX" data-te-collapse-item>
+            <ul class="flex flex-col lg:flex-row text-3xl lg:space-x-2 lg:space-y-0 space-y-3 " data-te-navbar-nav-ref>
+                <li data-te-nav-item-ref>
+                    <a href="{{ url('/') }}"
+                        class="block transition duration-150 ease-in-out text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2"
+                        data-te-nav-link-ref data-te-ripple-init>
+                        Kezdőlap
+                    </a>
+                </li>
+                <li data-te-nav-item-ref>
+                    <a href="{{ route('all_movie') }}"
+                        class="block transition duration-150 ease-in-out text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2"
+                        data-te-nav-link-ref data-te-ripple-init>
+                        Filmek
+                    </a>
+                </li>
+                <li data-te-nav-item-ref>
+                    <a href="{{ route('login') }}"
+                        class="block transition duration-150 ease-in-out text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2"
+                        data-te-nav-link-ref data-te-ripple-init>
+                        Bejelentkezés
+                    </a>
+                </li>
+                <li data-te-nav-item-ref>
+                    <a href="{{ route('register') }}"
+                        class="block transition duration-150 ease-in-out text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2"
+                        data-te-nav-link-ref data-te-ripple-init>
+                        Regisztráció
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
