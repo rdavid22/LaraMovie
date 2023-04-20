@@ -32,20 +32,30 @@
                         Filmek
                     </a>
                 </li>
-                <li data-te-nav-item-ref>
-                    <a href="{{ route('login') }}"
-                        class="block transition duration-150 ease-in-out text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2"
-                        data-te-nav-link-ref data-te-ripple-init>
-                        Bejelentkezés
-                    </a>
-                </li>
-                <li data-te-nav-item-ref>
-                    <a href="{{ route('register') }}"
-                        class="block transition duration-150 ease-in-out text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2"
-                        data-te-nav-link-ref data-te-ripple-init>
-                        Regisztráció
-                    </a>
-                </li>
+                @if (Auth::check())
+                    <li data-te-nav-item-ref>
+                        <a href="{{ route('profile.edit') }}"
+                            class="block transition duration-150 ease-in-out text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2"
+                            data-te-nav-link-ref data-te-ripple-init>
+                            Profil
+                        </a>
+                    </li>
+                @else
+                    <li data-te-nav-item-ref>
+                        <a href="{{ route('login') }}"
+                            class="block transition duration-150 ease-in-out text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2"
+                            data-te-nav-link-ref data-te-ripple-init>
+                            Bejelentkezés
+                        </a>
+                    </li>
+                    <li data-te-nav-item-ref>
+                        <a href="{{ route('register') }}"
+                            class="block transition duration-150 ease-in-out text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2"
+                            data-te-nav-link-ref data-te-ripple-init>
+                            Regisztráció
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>
