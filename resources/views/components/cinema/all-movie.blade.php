@@ -1,5 +1,6 @@
-<div class="flex flex-col mt-24 pb-10 space-y-10 lg:mx-auto lg:max-w-screen-2xl">
-    <div class="text-lg self-start tracking-widest mt-10 text-white p-3">
+<div class="flex flex-col mt-24 pb-10 space-y-10 lg:mx-auto lg:max-w-screen-2xl pt-10">
+    <x-cinema.category-filter />
+    <div class="text-lg self-start tracking-widest text-white p-3">
         <a href=" {{ Route('home') }} ">Kezdőlap &gt; </a>
         <a href=" {{ Route('all_movie') }} ">Filmek </a>
     </div>
