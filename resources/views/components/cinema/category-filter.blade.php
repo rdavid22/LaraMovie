@@ -1,5 +1,6 @@
+
 <form action="{{Route('all_movie')}}" method="GET">
-    <div class="text-white w-40 p-3">
+    <div class="text-white w-40 my-5 font-roboto">
         <select id="category_filter" name="kategoria" data-te-select-init onchange="this.form.submit()">
             <option value="" hidden selected></option>
             <option value="Akciófilm">Akciófilm</option>
@@ -16,5 +17,4 @@
         </select>
         <label data-te-select-label-ref class="text-white">Kategória</label>
     </div>
-
 </form>
