@@ -22,8 +22,6 @@ Route::get('/filmek', [MovieController::class, 'index'])->name('all_movie');
 
 Route::get('/filmek/{movie}', [MovieController::class, 'show']);
 
-// Route::get('/filmek/kategoriak/{category}')
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
