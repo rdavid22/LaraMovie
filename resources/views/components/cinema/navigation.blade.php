@@ -15,7 +15,7 @@
         <!-- Hamburger icon -->
 
         <!-- Links -->
-        <div class="!visible hidden grow basis-[100%] items-center lg:!flex lg:basis-auto mt-5 lg:mt-0"
+        <div class="!visible hidden grow basis-[100%] items-center lg:!flex lg:basis-auto mt-5 lg:mt-0 md:justify-center"
             id="navbarSupportedContentX" data-te-collapse-item>
             <ul class="flex flex-col lg:flex-row text-3xl lg:space-x-2 lg:space-y-0 space-y-3 " data-te-navbar-nav-ref>
                 <li data-te-nav-item-ref>
