@@ -16,7 +16,7 @@
 
 
 <section id="movie_description"
-    class="flex flex-col font-roboto tracking-widest max-w-screen-lg mx-auto space-y-5 flex-wrap min-h-screen text-xl items-center justify-center text-white pt-20 px-3 md:px-20">
+    class="flex flex-col font-roboto tracking-widest max-w-screen-lg mx-auto space-y-5 flex-wrap min-h-screen text-xl items-center justify-center text-white pt-20 md:pt-40 px-3 md:px-20">
 
     {{-- Előző oldalak --}}
     <div class="text-lg self-start tracking-widest">
@@ -26,9 +26,9 @@
     </div>
 
     {{-- Film címe és vásárlás gomb --}}
-    <div class="flex flex-row flex-wrap justify-between w-full">
-        <div class="flex flex-row space-x-2">
-            <div class="font-cheeky text-5xl">{{ $singleMovie->title }}</div>
+    <div class="flex flex-row flex-wrap space-y-5 sm:space-y-0 justify-center sm:justify-between w-full">
+        <div class="flex flex-row space-x-20 sm:space-x-2 justify-start w-full sm:w-auto">
+            <div class="font-cheeky text-5xl w-min sm:w-max ">{{ $singleMovie->title }}</div>
             <img src="{{ $image_to_load }}" class="w-6 h-6 my-auto">
         </div>
         <button
