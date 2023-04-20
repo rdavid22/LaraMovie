@@ -13,9 +13,9 @@
             <!-- First column: information -->
 
             <!-- Second column: sitemap -->
-            <div class="flex flex-col">
+            <div class="flex flex-col space-y-5">
                 <p class="text-2xl">Oldaltérkép</p>
-                    <div class="flex flex-col pt-8 text-start text-lg w-fit ">
+                    <div class="flex flex-col text-start text-lg w-fit ">
                         <a href="{{ Route('home') }}">Kezdőlap</a>
                         <a href="{{ Route('all_movie') }}">Filmek</a>
                         <a href="{{ Route('login') }}">Bejelentkezés</a>
@@ -25,9 +25,9 @@
             <!-- Second column: sitemap -->
 
             <!-- Third column: -->
-            <div class="flex flex-col ">
+            <div class="flex flex-col space-y-5">
                 <p class="text-2xl">Ászf</p>
-                    <div class="flex flex-col pt-8 text-start text-lg ">
+                    <div class="flex flex-col text-start text-lg ">
                         <a href="#!">Cookie szabályzat</a>
                         <a href="#!">Adatvédelem</a>
                     </div>
