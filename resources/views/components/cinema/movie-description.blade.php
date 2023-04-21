@@ -45,7 +45,7 @@
 
     {{-- Leírás szöveg --}}
     <div class="flex flex-row flex-wrap md:flex-nowrap justify-center space-y-5 md:space-y-0 md:justify-between md:space-x-5 lg:space-x-0 w-full pb-10">
-        <div class="flex flex-col justify-evenly space-y-5">
+        <div class="flex flex-col justify-evenly space-y-5 mx-5 md:mx-0">
             <div class="font-roboto-bold flex flex-row justify-between">
                 <div>Játékidő: {{ $singleMovie->length }} perc</div>
                 <div></div>
