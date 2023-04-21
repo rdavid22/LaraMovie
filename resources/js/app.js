@@ -8,9 +8,7 @@ import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
 import '@splidejs/splide/css';
 
 // Tailwind-Elements
-import * as tw from 'tw-elements';
-// import { Collapse, initTE } from "tw-elements";
-// initTE({ Collapse });
+import 'tw-elements';
 
 window.Alpine = Alpine;
 window.Splide = Splide;

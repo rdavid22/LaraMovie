@@ -20,6 +20,10 @@ Route::get('/',[HomeController::class, 'index'])->name('home');
 
 Route::get('/filmek', [MovieController::class, 'index'])->name('all_movie');
 
+Route::get('/filmek/hozzaadas', [MovieController::class, 'create'])->name('movie.create');
+
+Route::post('/filmek/hozzaadas', [MovieController::class, 'store'])->name('movie.store');
+
 Route::get('/filmek/{movie}', [MovieController::class, 'show']);
 
 Route::get('/dashboard', function () {

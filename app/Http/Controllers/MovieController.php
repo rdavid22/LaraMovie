@@ -56,6 +56,11 @@ class MovieController extends Controller
     // Show Create Movie Form
     public function create()
     {
-        return view('listings.create');
+        return view('movies.create');
+    }
+
+    public function store()
+    {
+        dd(request());
     }
 }
