@@ -15,6 +15,8 @@
             @method('DELETE')
             <input type="text" name="id" value="{{ $singleMovie->id }}" hidden>
             <input type="text" name="title" value="{{ $singleMovie->title }}" hidden>
+            <input type="text" name="cover" value="{{ $singleMovie->cover }}" hidden>
+            <input type="text" name="cover_big" value="{{ $singleMovie->cover_big }}" hidden>
             <button
                 class="flex flex-col items-center hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
