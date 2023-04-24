@@ -14,7 +14,7 @@ class MovieSeeder extends Seeder
      */
     public function run(): void
     {
-        Movie::factory(100)->create(
+        Movie::factory(10)->create(
             [
                 'cover' => 'https://www.cinemacity.hu/xmedia-cw/repo/feats/posters/5544O2R1-md.jpg',
                 'cover_big' => 'https://www.cinemacity.hu/xmedia-cw/repo/feats/posters/5544O2R1-lg.jpg',

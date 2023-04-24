@@ -51,15 +51,15 @@
                 <div></div>
             </div>
             <p class="text-justify max-w-lg text-base">{{ $singleMovie->description }}</p>
-            <table class="table-auto text-base">
+            <table class="table-auto text-base max-w-lg">
                 <tbody>
                     <tr>
                         <td>Eredeti cím:</td>
                         <td>{{ $singleMovie->title }}</td>
                     </tr>
                     <tr>
-                        <td>Évszám</td>
-                        <td>{{ $singleMovie->year }}</td>
+                        <td>Premier</td>
+                        <td>{{ $singleMovie->premier }}</td>
                     </tr>
                     <tr>
                         <td>Műfaj</td>
@@ -85,7 +85,7 @@
             </table>
         </div>
         <div>
-            <img src="{{ $singleMovie->cover_big }}" class="m-auto">
+            <img src="{{ $singleMovie->cover_big  ? asset('storage/' . $singleMovie->cover_big ) : Vite::asset('resources/img/default.jpg') }}" class="m-auto">
         </div>
     </div>
 </section>

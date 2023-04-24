@@ -18,12 +18,12 @@
         @foreach ($movies as $movie)
             <div class="p-3 rounded-lg hover:bg-gray-600 w-fit mx-auto">
                 <a href="/filmek/{{ $movie->title }}" tabindex="-1">
-                    <img class="mx-auto" src="{{ $movie->cover }}">
+                    <img class="mx-auto" src="{{ $movie->cover ? asset('storage/' . $movie->cover) : Vite::asset('resources/img/default.jpg') }}">
 
-                    <div class="text-white py-2 text-start ">
-                        <p>{{ $movie->title }}</p>
-                        <p class="text-gray-300 text-sm truncate">{{ $movie->genre }}</p>
-                        <p class="text-gray-300 text-sm">{{ $movie->year }}</p>
+                    <div class="text-white py-2 text-sm text-start w-48 truncate">
+                        <p class="truncate">{{ $movie->title }}</p>
+                        <p class="text-gray-300 truncate">{{ $movie->genre }}</p>
+                        <p class="text-gray-300">Premier: {{ $movie->premier }}</p>
                     </div>
 
                     <button class="bg-yellow-500 rounded-md px-5 py-2 text-black tracking-wide w-full" tabindex="-1">
@@ -32,6 +32,9 @@
                 </a>
             </div>
         @endforeach
+    </div>
+    <div class="text-white my-6 p-6">
+        {{$movies->links()}}
     </div>
     <x-cinema.footer />
 </div>

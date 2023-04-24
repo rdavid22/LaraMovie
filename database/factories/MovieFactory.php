@@ -21,7 +21,7 @@ class MovieFactory extends Factory
         $available_titles = ['A szörny', 'Szupercella', 'Suzume', 'Renfield', 'Amitől félünk', 'A pápa ördögűzője', 'Gyönyörű sorscsapás', 'Hat hét', '13 ördögűzés', 'Éjszakai átutazók', 'Műanyag égbolt'];
         return [
             'title' => $this->faker->randomElement($available_titles),
-            'year' => $this->faker->year(),
+            'premier' => $this->faker->date(),
             'cast' => $this->faker->randomElement(['Clancy Brown', 'Harbringer', 'Ian McShane', 'Winston', 'Marko Zaror', 'Chidi', 'Bill Skarsgard', 'Marquis']),
             'director' => $this->faker->lastName(),
             'length' => $this->faker->numberBetween(45,300),

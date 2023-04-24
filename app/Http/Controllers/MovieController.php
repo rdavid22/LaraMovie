@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Movie;
+use Session;
 
 class MovieController extends Controller
 {
@@ -34,7 +35,7 @@ class MovieController extends Controller
             }
         } else {
             return view('movies.index', [
-                'movies' => Movie::all()
+                'movies' => Movie::latest()->simplePaginate(6)
             ]);
         }
     }
@@ -61,6 +62,36 @@ class MovieController extends Controller
 
     public function store()
     {
-        dd(request());
+        $requestFields = request()->validate([
+            'title' => 'required',
+            'director' => 'required',
+            'length' => 'required',
+            'cast' => 'required',
+            'trailer' => 'required',
+            'age' => 'required',
+            'genre' => 'required',
+            'premier' => 'required',
+            'description' => 'required'
+        ]);
+
+        if(request()->hasFile('cover')) {
+            $requestFields['cover'] = request()->file('cover')->store('covers', 'public');
+        }
+        if(request()->hasFile('cover_big')) {
+            $requestFields['cover_big'] = request()->file('cover_big')->store('covers_big', 'public');
+        }
+        
+        $genre_str = "";
+        foreach(request()->genre as $genre){
+            $genre_str = $genre_str . $genre . ', ';
+        }
+        $requestFields['genre'] = $genre_str;
+
+        Movie::create($requestFields);
+
+        $session_message = 'A(z) ' . '\'' . $requestFields['title'] . '\'' . ' sikeresen hozzáadva!';
+        Session::flash('movie_added', $session_message);
+
+        return redirect('/filmek');
     }
 }

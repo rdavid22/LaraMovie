@@ -44,6 +44,16 @@
             </div>
 
             <div class="mb-3">
+                <label for="trailer" class="inline-block text-md mb-1">Előzetes</label>
+                <input type="text" class="text-black border border-gray-200 rounded p-1 w-full" name="trailer"
+                    value="{{ old('trailer') }}" />
+
+                @error('trailer')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-3">
                 <label for="genre[]" class="inline-block text-md mb-1">Műfaj</label>
                 <div class="text-black bg-white rounded">
                     <select
@@ -52,8 +62,6 @@
                         data-te-select-placeholder="Válasszon ki egyet vagy többet!"
                         multiple
                         >
-
-                        <option value="" hidden></option>
                         <option value="Akciófilm">Akciófilm</option>
                         <option value="Családi">Családi</option>
                         <option value="Kalandfilm">Kalandfilm</option>
