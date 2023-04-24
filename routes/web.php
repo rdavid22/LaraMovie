@@ -16,14 +16,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Show homepage
 Route::get('/',[HomeController::class, 'index'])->name('home');
 
+// Show all movie in descending order
 Route::get('/filmek', [MovieController::class, 'index'])->name('all_movie');
 
+// Show create movie page
 Route::get('/filmek/hozzaadas', [MovieController::class, 'create'])->name('movie.create');
 
+// Store movie in database
 Route::post('/filmek/hozzaadas', [MovieController::class, 'store'])->name('movie.store');
 
+// Show a single movie
 Route::get('/filmek/{movie}', [MovieController::class, 'show']);
 
 Route::get('/dashboard', function () {
