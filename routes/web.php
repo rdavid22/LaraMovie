@@ -22,15 +22,17 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Show all movie in descending order
 Route::get('/filmek', [MovieController::class, 'index'])->name('all_movie');
 
-// Show a single movie
-Route::get('/filmek/{movie}', [MovieController::class, 'show']);
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
+Route::middleware(['auth', 'EnsureUserIsAdmin'])->group(function () {
     // Show create movie page
     Route::get('/filmek/hozzaadas', [MovieController::class, 'create'])->name('movie.create');
 
@@ -45,10 +47,9 @@ Route::middleware('auth')->group(function () {
 
     // Delete existing movie
     Route::delete('/filmek/{movie}', [MovieController::class, 'destroy']);
-    
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// Show a single movie
+Route::get('/filmek/{movie}', [MovieController::class, 'show']);
 
 require __DIR__ . '/auth.php';
