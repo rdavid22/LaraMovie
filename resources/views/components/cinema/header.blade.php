@@ -5,6 +5,7 @@
         background-image: url('{{ Vite::asset('resources/img/default.webp') }}');
         height: 100vh;
         ">
+    <x-cinema.flash />
     <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed">
         <!-- Hero text -->
         <div id="heroText"
