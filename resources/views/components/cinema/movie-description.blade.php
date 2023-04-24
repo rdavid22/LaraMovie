@@ -39,12 +39,15 @@
     <iframe class="w-full  aspect-video" src="{{ $singleMovie->trailer }}" title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen></iframe>
+    
+    <x-cinema.edit-delete-card :singleMovie="$singleMovie" />
 
     {{-- Leírás és ikonok --}}
     <div class="self-center font-cheeky text-5xl py-5">Leírás</div>
 
     {{-- Leírás szöveg --}}
-    <div class="flex flex-row flex-wrap md:flex-nowrap justify-center space-y-5 md:space-y-0 md:justify-between md:space-x-5 lg:space-x-0 w-full pb-10">
+    <div
+        class="flex flex-row flex-wrap md:flex-nowrap justify-center space-y-5 md:space-y-0 md:justify-between md:space-x-5 lg:space-x-0 w-full pb-10">
         <div class="flex flex-col justify-evenly space-y-5 mx-5 md:mx-0">
             <div class="font-roboto-bold flex flex-row justify-between">
                 <div>Játékidő: {{ $singleMovie->length }} perc</div>
@@ -85,7 +88,8 @@
             </table>
         </div>
         <div>
-            <img src="{{ $singleMovie->cover_big  ? asset('storage/' . $singleMovie->cover_big ) : Vite::asset('resources/img/default.jpg') }}" class="m-auto">
+            <img src="{{ $singleMovie->cover_big ? asset('storage/' . $singleMovie->cover_big) : Vite::asset('resources/img/default.jpg') }}"
+                class="m-auto">
         </div>
     </div>
 </section>

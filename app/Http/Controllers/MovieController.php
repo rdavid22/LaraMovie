@@ -132,7 +132,16 @@ class MovieController extends Controller
         $requestFields['genre'] = $genre_str;
 
         Movie::where('id', request()->id)->update($requestFields);
-        
+
         return redirect('/filmek')->with('movie_added', 'A(z) ' . '\'' . $requestFields['title'] . '\'' . ' sikeresen módosítva!');
+    }
+
+    public function destroy()
+    {
+        $movie = Movie::find(request()->id);
+
+        $movie->delete();
+
+        return redirect('/filmek')->with('movie_added', 'A(z) ' . '\'' . request()->title . '\'' . ' sikeresen törölve!');
     }
 }
