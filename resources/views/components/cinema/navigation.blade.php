@@ -25,6 +25,13 @@
                         Kezdőlap
                     </a>
                 </li>
+                <li data-te-nav-item-ref>
+                    <a href="{{ route('all_movie') }}"
+                        class="block transition duration-150 ease-in-out text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2"
+                        data-te-nav-link-ref data-te-ripple-init>
+                        Filmek
+                    </a>
+                </li>
                 @if (Auth::check() && Auth::user()->is_admin)
                     <li data-te-nav-item-ref>
                         <a href="{{ route('movie.create') }}"
@@ -34,13 +41,6 @@
                         </a>
                     </li>
                 @endif
-                <li data-te-nav-item-ref>
-                    <a href="{{ route('all_movie') }}"
-                        class="block transition duration-150 ease-in-out text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2"
-                        data-te-nav-link-ref data-te-ripple-init>
-                        Filmek
-                    </a>
-                </li>
                 @if (Auth::check())
                     <li data-te-nav-item-ref>
                         <a href="{{ route('profile.edit') }}"
