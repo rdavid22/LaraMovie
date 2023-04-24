@@ -28,6 +28,12 @@ Route::get('/filmek/hozzaadas', [MovieController::class, 'create'])->name('movie
 // Store movie in database
 Route::post('/filmek/hozzaadas', [MovieController::class, 'store'])->name('movie.store');
 
+// Show edit movie page
+Route::get('/filmek/{movie}/szerkesztes', [MovieController::class, 'edit'])->name('movie.edit');
+
+// Update existing movie
+Route::put('/filmek/{movie}', [MovieController::class, 'update']);
+
 // Show a single movie
 Route::get('/filmek/{movie}', [MovieController::class, 'show']);
 

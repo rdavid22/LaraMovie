@@ -74,15 +74,15 @@ class MovieController extends Controller
             'description' => 'required'
         ]);
 
-        if(request()->hasFile('cover')) {
+        if (request()->hasFile('cover')) {
             $requestFields['cover'] = request()->file('cover')->store('covers', 'public');
         }
-        if(request()->hasFile('cover_big')) {
+        if (request()->hasFile('cover_big')) {
             $requestFields['cover_big'] = request()->file('cover_big')->store('covers_big', 'public');
         }
-        
+
         $genre_str = "";
-        foreach(request()->genre as $genre){
+        foreach (request()->genre as $genre) {
             $genre_str = $genre_str . $genre . ', ';
         }
         $requestFields['genre'] = $genre_str;
@@ -93,5 +93,46 @@ class MovieController extends Controller
         Session::flash('movie_added', $session_message);
 
         return redirect('/filmek');
+    }
+
+    public function edit(string $movie_title)
+    {
+        $movie = Movie::where('title', $movie_title)->first();
+        return view('movies.edit', [
+            'movie' => $movie,
+        ]);
+    }
+
+    public function update()
+    {
+        $requestFields = request()->validate([
+            'title' => 'required',
+            'director' => 'required',
+            'length' => 'required',
+            'cast' => 'required',
+            'trailer' => 'required',
+            'age' => 'required',
+            'genre' => 'required',
+            'premier' => 'required',
+            'description' => 'required'
+        ]);
+
+        if (request()->hasFile('cover')) {
+            $requestFields['cover'] = request()->file('cover')->store('covers', 'public');
+        }
+        if (request()->hasFile('cover_big')) {
+            $requestFields['cover_big'] = request()->file('cover_big')->store('covers_big', 'public');
+        }
+
+        $genre_str = "";
+
+        foreach (request()->genre as $genre) {
+            $genre_str = $genre_str . $genre . ', ';
+        }
+        $requestFields['genre'] = $genre_str;
+
+        Movie::where('id', request()->id)->update($requestFields);
+        
+        return redirect('/filmek')->with('movie_added', 'A(z) ' . '\'' . $requestFields['title'] . '\'' . ' sikeresen módosítva!');
     }
 }
