@@ -34,7 +34,7 @@ class ScreenTimesController extends Controller
     {
         // Validate request fields
         $requestFields = request()->validate([
-            'selectedMovie' => 'required',
+            'movie_id' => 'required',
             'date' => 'required',
             'time' => 'required',
             'seats' => 'required',
@@ -45,6 +45,10 @@ class ScreenTimesController extends Controller
         // Set date (concatenate from 2 arr items) & unset not needed array item
         $requestFields['date'] = $requestFields['date'] . ' ' . $requestFields['time'];
         unset($requestFields['time']);
+
+        $movie = Movie::find($request->movie_id);
+
+        $movie->screenTimes()->create($requestFields);
 
         return redirect()->back()->with('screentime_added', 'Időpont sikeresen hozzáadva');
     }

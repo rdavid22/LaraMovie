@@ -40,6 +40,13 @@
                             Film hozzáadása
                         </a>
                     </li>
+                    <li data-te-nav-item-ref>
+                        <a href="{{ route('screentimes.create') }}"
+                            class="block transition duration-150 ease-in-out text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2"
+                            data-te-nav-link-ref data-te-ripple-init>
+                            Vetítés hozzáadása
+                        </a>
+                    </li>
                 @endif
                 @if (Auth::check())
                     <li data-te-nav-item-ref>

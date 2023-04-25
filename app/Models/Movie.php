@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Movie extends Model
 {
@@ -34,5 +35,10 @@ class Movie extends Model
             $query->where('title', 'like', '%' . request('kereses') . '%')
                 ->orWhere('description', 'like', '%' . request('kereses') . '%');
         }
+    }
+
+    public function screenTimes(): HasMany
+    {
+        return $this->hasMany(ScreenTimes::class);
     }
 }

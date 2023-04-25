@@ -6,16 +6,16 @@
             @csrf
 
             <div class="mb-3">
-                <label for="selectedMovie" class="inline-block text-md mb-1">Film</label>
+                <label for="movie_id" class="inline-block text-md mb-1">Film</label>
                 <div class="text-black bg-white rounded">
-                    <select data-te-select-init name="selectedMovie" data-te-select-filter="true"
+                    <select data-te-select-init name="movie_id" data-te-select-filter="true"
                         data-te-select-placeholder="Válasszon ki egyet!">
                         @foreach ($movies as $movie)
-                            <option value="{{ $movie->title }}">{{ $movie->title }}</option>
+                            <option value="{{ $movie->id }}">{{ $movie->title }}</option>
                         @endforeach
                     </select>
                 </div>
-                @error('selectedMovie')
+                @error('movie_id')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
