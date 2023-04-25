@@ -16,7 +16,7 @@
 
 
 <section id="movie_description"
-    class="flex flex-col font-roboto tracking-widest max-w-screen-lg mx-auto space-y-5 flex-wrap min-h-screen text-xl items-center justify-center text-white pt-20 md:pt-40 px-3 md:px-20">
+    class="flex flex-col font-roboto tracking-widest max-w-screen-lg mx-auto space-y-5 flex-wrap min-h-screen text-xl items-center justify-center text-white pt-20 pb-10 md:pt-40 mt:pb-20 px-3 md:px-20">
 
     {{-- Előző oldalak --}}
     <div class="text-lg self-start tracking-widest">
@@ -39,7 +39,7 @@
     <iframe class="w-full  aspect-video" src="{{ $singleMovie->trailer }}" title="YouTube video player" frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowfullscreen></iframe>
-    
+
     <x-cinema.edit-delete-card :singleMovie="$singleMovie" />
 
     {{-- Leírás és ikonok --}}
@@ -47,7 +47,7 @@
 
     {{-- Leírás szöveg --}}
     <div
-        class="flex flex-row flex-wrap md:flex-nowrap justify-center space-y-5 md:space-y-0 md:justify-between md:space-x-5 lg:space-x-0 w-full pb-10">
+        class="flex flex-row flex-wrap md:flex-nowrap justify-center space-y-5 md:space-y-0 md:justify-between md:space-x-5 lg:space-x-0 w-full">
         <div class="flex flex-col justify-evenly space-y-5 mx-5 md:mx-0">
             <div class="font-roboto-bold flex flex-row justify-between">
                 <div>Játékidő: {{ $singleMovie->length }} perc</div>
@@ -92,5 +92,8 @@
                 class="m-auto">
         </div>
     </div>
+
+    
 </section>
+<x-cinema.screentime-card :movie="$singleMovie" />
 <x-cinema.footer />

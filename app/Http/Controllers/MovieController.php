@@ -57,8 +57,8 @@ class MovieController extends Controller
     public function show(string $movie_title)
     {
         // Search through the database for the movie by title
-        $movie = Movie::where('title', $movie_title)->first();
-
+        $movie = Movie::where('title', $movie_title)->with('screenTimes')->first();
+        
         // If eloquent founds one, returns it, else throws a 404
         if ($movie) {
             return view('movies.show', [
