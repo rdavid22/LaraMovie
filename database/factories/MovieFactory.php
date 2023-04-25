@@ -27,8 +27,8 @@ class MovieFactory extends Factory
             'length' => $this->faker->numberBetween(45,300),
             'age' => $this->faker->randomElement($available_pcrs),
             'genre' => $this->faker->randomElement($available_genres) . ', ' . $this->faker->randomElement($available_genres) . ', ' . $this->faker->randomElement($available_genres),
-            'cover' => $this->faker->url(),
-            'cover_big' => $this->faker->url(),
+            'cover' => '',
+            'cover_big' => '',
             'trailer' => $this->faker->url(),
             'description' => $this->faker->realText(250)
         ];
