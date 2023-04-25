@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservations;
 use App\Http\Controllers\Controller;
+use App\Models\ScreenTimes;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ReservationsController extends Controller
@@ -13,7 +15,18 @@ class ReservationsController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::where('id', request()->user()->id)->with('reservations')->first();
+        $reservations = $user->reservations;
+        
+        $user_reservations = array();
+        foreach($reservations as $reservation)
+        {
+            array_push($user_reservations, ScreenTimes::where('id', $reservation['screen_time_id'])->with('movie')->first());
+        }
+
+        return view('movies.reservations.index', [
+            'reservations' => $user_reservations
+        ]);
     }
 
     /**
@@ -21,7 +34,14 @@ class ReservationsController extends Controller
      */
     public function create()
     {
-        //
+        $screentime = ScreenTimes::find(request()->screentime_id);
+        
+        $screentime->reservations()->create([
+            'screen_time_id' => $screentime->id,
+            'user_id' => request()->user()->id
+        ]);
+
+        return redirect()->back()->with('message', 'A foglalás sikeresen megtörtént!');
     }
 
     /**

@@ -31,8 +31,7 @@
             <div class="font-cheeky text-5xl w-min sm:w-max ">{{ $singleMovie->title }}</div>
             <img src="{{ $image_to_load }}" class="w-6 h-6 my-auto">
         </div>
-        <button
-            class="font-sans p-3 text-red-600 outline outline-2 outline-red-600 hover:bg-red-600 hover:text-white transition-all rounded-sm tracking-widest">Jegyfoglalás</button>
+        <a href="#screentimes" class="font-sans p-3 text-red-600 outline outline-2 outline-red-600 hover:bg-red-600 hover:text-white transition-all rounded-sm tracking-widest">Jegyfoglalás</a>
     </div>
 
     {{-- Előzetes videó --}}
@@ -43,7 +42,7 @@
     <x-cinema.edit-delete-card :singleMovie="$singleMovie" />
 
     {{-- Leírás és ikonok --}}
-    <div class="self-center font-cheeky text-5xl py-5">Leírás</div>
+    <div class="self-center font-cheeky text-4xl py-5">Leírás</div>
 
     {{-- Leírás szöveg --}}
     <div

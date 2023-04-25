@@ -57,6 +57,13 @@
                         </a>
                     </li>
                     <li data-te-nav-item-ref>
+                        <a href="{{ route('reservations.index') }}"
+                            class="block transition duration-150 ease-in-out text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2"
+                            data-te-nav-link-ref data-te-ripple-init>
+                            Foglalások
+                        </a>
+                    </li>
+                    <li data-te-nav-item-ref>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
@@ -68,7 +75,6 @@
                                 {{ __('Log Out') }}
                             </a>
                         </form>
-
                     </li>
                 @else
                     <li data-te-nav-item-ref>

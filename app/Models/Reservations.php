@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Reservations extends Model
 {
     use HasFactory;
-    protected $table = 'reservation';
+    protected $table = 'reservations';
 
     protected $fillable = [
         'screen_time_id',
