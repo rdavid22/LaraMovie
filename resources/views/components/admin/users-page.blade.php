@@ -2,7 +2,7 @@
 <section id="users">
     <div class="m-5 p-5 font-roboto bg-white shadow-lg">
         <p class="text-center text-2xl font-roboto-bold">Felhasználók</p>
-        <div class="flex flex-row flex-wrap text-center justify-center lg:justify-between shadow-lg bg-gradient-to-br from-green-500 via-green-500 to-green-300 w-fit p-6 m-5 rounded-lg text-white text-2xl">
+        <div class="flex flex-row flex-wrap mx-auto lg:mx-0 text-center justify-center lg:justify-between shadow-lg bg-gradient-to-br from-green-500 via-green-500 to-green-300 w-fit p-6 m-5 rounded-lg text-white text-2xl">
             <div class="flex flex-col mx-5">
                 <p class="text-black font-roboto-bold">{{ count($users) }}</p>
                 <p class="text-sm text-black ">Regisztrált tag</p>
@@ -14,7 +14,7 @@
             </div>
         </div>
         <p class="m-4 p-2 text-lg">Felhasználók</p>
-        <div class="overflow-hidden">
+        <div class="overflow-auto">
             <table class="min-w-full text-left text-sm font-light">
                 <thead class="border-b font-medium dark:border-neutral-500">
                     <tr>

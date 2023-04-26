@@ -1,9 +1,9 @@
+<x-admin.flash />
 <section id="finances">
     <div class="m-5 p-5 font-roboto bg-white shadow-lg">
-
         <p class="text-center text-2xl font-roboto-bold">Pénzügyek</p>
         <div
-            class="flex flex-row flex-wrap text-center justify-center lg:justify-between shadow-lg bg-gradient-to-br from-green-500 via-green-500 to-green-300 w-fit p-6 m-5 rounded-lg text-white text-2xl">
+            class="flex flex-row flex-wrap mx-auto lg:mx-0 text-center justify-center lg:justify-between shadow-lg bg-gradient-to-br from-green-500 via-green-500 to-green-300 w-fit p-6 m-5 rounded-lg text-white text-2xl">
             <div class="flex flex-col mx-5">
                 <p class="text-black font-roboto-bold">{{ $income }} Ft.</p>
                 <p class="text-sm text-black ">Várható bevétel</p>
@@ -17,7 +17,7 @@
             </div>
         </div>
         <p class="m-4 p-2 text-lg">Vásárlók</p>
-        <div class="overflow-hidden">
+        <div class="overflow-auto">
             <table class="min-w-full text-left text-sm font-light">
                 <thead class="border-b font-medium dark:border-neutral-500">
                     <tr>
@@ -34,6 +34,20 @@
                             <td class="whitespace-nowrap px-6 py-4 font-medium">{{ $reservation['user']->email }}</td>
                             <td class="whitespace-nowrap px-6 py-4">{{ $reservation['created_at'] }}</td>
                             <td class="whitespace-nowrap px-6 py-4">{{ $reservation['screenTime']->price }} Ft.</td>
+                            <td class="whitespace-nowrap px-6 py-4">
+                                <form method="POST" action="/vezerlopult/penzugyek">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="text" name="id" value="{{ $reservation->id }}" hidden>
+                                    <button 
+                                    data-te-toggle="tooltip"
+                                    title="Foglalás törlése">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

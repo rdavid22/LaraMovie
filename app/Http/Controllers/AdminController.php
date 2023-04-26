@@ -54,6 +54,13 @@ class AdminController extends Controller
             return redirect()->back()->with('message', 'Felhasználó sikeresen törölve!');
         }
     }
+
+    public function destroy_finance()
+    {
+        $reservation = Reservations::find(request()->id);
+        $reservation->delete();
+        return redirect()->back()->with('message', 'Foglalás sikeresen törölve!');
+    }
 }
 
 
