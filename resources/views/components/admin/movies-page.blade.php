@@ -16,7 +16,7 @@
                 </div>
             </div>
 
-            <a href="/filmek/hozzaadas" data-te-toggle="tooltip" title="Film hozzáadása" class="flex flex-row flex-wrap mx-auto lg:mx-0 text-center justify-center lg:justify-between shadow-lg bg-gradient-to-br from-orange-500 via-orange-500 to-orange-300 w-fit p-6 m-5 rounded-lg text-white text-2xl">
+            <a href="{{Route('movie.create')}}" data-te-toggle="tooltip" title="Film hozzáadása" class="flex flex-row flex-wrap mx-auto lg:mx-0 text-center justify-center lg:justify-between shadow-lg bg-gradient-to-br from-orange-500 via-orange-500 to-orange-300 w-fit p-6 m-5 rounded-lg text-white text-2xl">
                 <p class="text-black font-roboto-bold mx-5 my-auto">Hozzáadás</p>
                 <div class="my-auto">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" class="w-6 h-6">

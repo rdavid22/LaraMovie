@@ -49,6 +49,14 @@ class AdminController extends Controller
             'movies' => Movie::get(),
         ]);
     }
+    
+    // Shows all screen times
+    public function screentimes()
+    {
+        return view('movies.admin.screentimes', [
+            'screentimes' => ScreenTimes::with('movie')->get(),
+        ]);
+    }
 
     // Deletes a user from the model by the request parameter: 'id' 
     public function destroy_user()

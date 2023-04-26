@@ -91,7 +91,7 @@
             </div>
 
             <div class="text-right mt-6">
-                <a href="/">Vissza</a>
+                <a href="{{Route('admin.screentimes')}}">Vissza</a>
                 <button
                     class="bg-black text-white rounded py-2 px-4 ml-4 hover:bg-gray-600 hover:text-white">Hozzáadás</button>
             </div>

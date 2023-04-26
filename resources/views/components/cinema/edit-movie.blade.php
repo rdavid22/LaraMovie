@@ -155,7 +155,7 @@
             </div>
 
             <div class="text-right mt-6">
-                <a href="/filmek/{{ $movie->title }}">Vissza</a>
+                <a href="{{Route('admin.movies')}}">Vissza</a>
                 <button
                     class="bg-black text-white rounded py-2 px-4 ml-4 hover:bg-gray-600 hover:text-white">Mentés</button>
             </div>

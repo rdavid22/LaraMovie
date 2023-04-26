@@ -10,14 +10,6 @@ use Illuminate\Http\Request;
 class ScreenTimesController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new resource.
      */
     public function create()
@@ -41,7 +33,7 @@ class ScreenTimesController extends Controller
             'price' => 'required',
             'presentation_type' => 'required'
         ]);
-   
+
         // Set date (concatenate from 2 arr items) & unset not needed array item
         $requestFields['date'] = $requestFields['date'] . ' ' . $requestFields['time'];
         unset($requestFields['time']);
@@ -50,15 +42,7 @@ class ScreenTimesController extends Controller
 
         $movie->screenTimes()->create($requestFields);
 
-        return redirect()->back()->with('screentime_added', 'Időpont sikeresen hozzáadva');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(ScreenTimes $screenTimes)
-    {
-        //
+        return to_route('admin.screentimes')->with('message', 'Időpont sikeresen hozzáadva');
     }
 
     /**
@@ -66,7 +50,12 @@ class ScreenTimesController extends Controller
      */
     public function edit(ScreenTimes $screenTimes)
     {
-        //
+        $screentime = ScreenTimes::with('movie')->find(request()->id);
+        $movies = Movie::all();
+        return view('movies.screentimes.edit', [
+            'screentime' => $screentime,
+            'movies' => $movies,
+        ]);
     }
 
     /**
@@ -74,7 +63,24 @@ class ScreenTimesController extends Controller
      */
     public function update(Request $request, ScreenTimes $screenTimes)
     {
-        //
+        $requestFields = $request->validate([
+            'movie_id' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+            'seats' => 'required',
+            'price' => 'required',
+            'presentation_type' => 'required'
+        ]);
+
+        // Set date (concatenate from 2 arr items) & unset not needed array item
+        $requestFields['date'] = $requestFields['date'] . ' ' . $requestFields['time'];
+        unset($requestFields['time']);
+
+        // Search screentime by id & update it with the request parameters
+        ScreenTimes::where('id', request()->id)->update($requestFields);
+
+        // Redirect user with success message
+        return to_route('admin.screentimes')->with('message', 'A vetítés sikeresen módosítva!');
     }
 
     /**
@@ -82,6 +88,8 @@ class ScreenTimesController extends Controller
      */
     public function destroy(ScreenTimes $screenTimes)
     {
-        //
+        $screentime = ScreenTimes::find(request()->id);
+        $screentime->delete();
+        return redirect()->back()->with('message', 'A vetítés sikeresen törölve!');
     }
 }

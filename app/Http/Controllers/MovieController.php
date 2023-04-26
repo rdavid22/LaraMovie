@@ -114,10 +114,10 @@ class MovieController extends Controller
 
         // Add a successfull message to the session flash 
         $session_message = 'A(z) ' . '\'' . $requestFields['title'] . '\'' . ' sikeresen hozzáadva!';
-        Session::flash('movie_added', $session_message);
+        Session::flash('message', $session_message);
 
         // Redirect to the all movies page
-        return redirect('/filmek');
+        return to_route('admin.movies');
     }
 
     // Shows edit page
@@ -171,7 +171,7 @@ class MovieController extends Controller
         Movie::where('id', request()->id)->update($requestFields);
 
         // Redirect user with success message
-        return redirect('/filmek')->with('movie_added', 'A(z) ' . '\'' . $requestFields['title'] . '\'' . ' sikeresen módosítva!');
+        return to_route('admin.movies')->with('message', 'A(z) ' . '\'' . $requestFields['title'] . '\'' . ' sikeresen módosítva!');
     }
 
     // Deletes an entity from the database
@@ -196,6 +196,6 @@ class MovieController extends Controller
         }
 
         // Redirect with successful message
-        return redirect('/filmek')->with('movie_added', 'A(z) ' . '\'' . request()->title . '\'' . ' sikeresen törölve!');
+        return to_route('admin.movies')->with('message', 'A(z) ' . '\'' . request()->title . '\'' . ' sikeresen törölve!');
     }
 }
