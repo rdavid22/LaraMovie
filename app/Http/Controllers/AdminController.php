@@ -27,10 +27,32 @@ class AdminController extends Controller
     // Shows the financial page
     public function finances()
     {
-        return view('movies.admin.finances',[
+        return view('movies.admin.finances', [
             'income' => getIncome(),
             'reservations' => Reservations::with('user', 'screenTime')->get()
         ]);
+    }
+
+    // Shows all user
+    public function users()
+    {
+        return view('movies.admin.users', [
+            'users' => User::get(),
+        ]);
+    }
+
+    // Deletes a user from the model by the request parameter: 'id' 
+    public function destroy_user()
+    {
+        if(request()->is_admin)
+        {
+            return redirect()->back()->with('message', 'Adminisztrátori fiókot nem lehet törölni!');
+        }
+        else {
+            $user = User::find(request()->id);
+            $user->delete();
+            return redirect()->back()->with('message', 'Felhasználó sikeresen törölve!');
+        }
     }
 }
 

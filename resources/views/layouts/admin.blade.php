@@ -29,7 +29,7 @@
                 class="block w-3/4 mx-auto cursor-pointer my-4 p-2 transition duration-500 text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500">
                 Pénzügyek
             </a>
-            <a href="#!"
+            <a href="{{Route('admin.users')}}"
                 class="block w-3/4 mx-auto cursor-pointer my-4 p-2 transition duration-500 text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500">
                 Felhasználók
             </a>
