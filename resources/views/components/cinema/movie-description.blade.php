@@ -28,8 +28,8 @@
 
     {{-- Film címe és foglalás gomb --}}
     <div class="flex flex-row flex-wrap space-y-5 sm:space-y-0 justify-center sm:justify-between w-full">
-        <div class="flex flex-row  space-x-2 justify-start w-full sm:w-auto">
-            <div class="font-cheeky text-5xl w-min sm:w-max ">{{ $singleMovie->title }}</div>
+        <div class="flex flex-row  justify-around sm:space-x-2 sm:justify-start w-full sm:w-auto">
+            <div class="font-cheeky text-5xl sm:w-max ">{{ $singleMovie->title }}</div>
             <img src="{{ $image_to_load }}" class="w-6 h-6 my-auto">
         </div>
         <a href="#screentimes" class="font-sans p-3 text-red-600 outline outline-2 outline-red-600 hover:bg-red-600 hover:text-white transition-all rounded-sm tracking-widest">Jegyfoglalás</a>
