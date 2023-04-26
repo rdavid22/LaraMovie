@@ -21,6 +21,10 @@
             <div class="text-2xl text-yellow-300">Üdvözöljük, {{ Auth::user()->name }}! </div>
             <hr class="my-2 mt-6">
 
+            <a href="{{ Route('admin.index') }}"
+                class="block w-3/4 mx-auto cursor-pointer my-4 p-2 transition duration-500 text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500">
+                Vezérlőpult
+            </a>
             <a href="{{ Route('home') }}"
                 class="block w-3/4 mx-auto cursor-pointer my-4 p-2 transition duration-500 text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500">
                 Kezdőlap

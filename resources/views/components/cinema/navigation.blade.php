@@ -34,22 +34,13 @@
                 </li>
                 @if (Auth::check() && Auth::user()->is_admin)
                     <li data-te-nav-item-ref>
-                        <a href="{{ route('movie.create') }}"
+                        <a href="{{ Route('admin.index') }}"
                             class="block transition duration-150 ease-in-out text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2"
                             data-te-nav-link-ref data-te-ripple-init>
-                            Film hozzáadása
-                        </a>
-                    </li>
-                    <li data-te-nav-item-ref>
-                        <a href="{{ route('screentimes.create') }}"
-                            class="block transition duration-150 ease-in-out text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2"
-                            data-te-nav-link-ref data-te-ripple-init>
-                            Vetítés hozzáadása
+                            Vezérlőpult
                         </a>
                     </li>
                 @endif
-
-
                 @if (Auth::check())
                     @if (Auth::user()->is_admin == false)
                         <li data-te-nav-item-ref>
@@ -59,14 +50,14 @@
                                 Foglalásaim
                             </a>
                         </li>
+                        <li data-te-nav-item-ref>
+                            <a href="{{ route('profile.edit') }}"
+                                class="block transition duration-150 ease-in-out text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2"
+                                data-te-nav-link-ref data-te-ripple-init>
+                                Fiókom
+                            </a>
+                        </li>
                     @endif
-                    <li data-te-nav-item-ref>
-                        <a href="{{ route('profile.edit') }}"
-                            class="block transition duration-150 ease-in-out text-xl text-white hover:text-red-500 hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-2"
-                            data-te-nav-link-ref data-te-ripple-init>
-                            Fiókom
-                        </a>
-                    </li>
                     <li data-te-nav-item-ref>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
