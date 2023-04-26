@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/movies.php';
 require __DIR__ . '/reservations.php';
 require __DIR__ . '/screentimes.php';
+require __DIR__ . '/admin.php';
 require __DIR__ . '/auth.php';
 
 // Show a single movie
