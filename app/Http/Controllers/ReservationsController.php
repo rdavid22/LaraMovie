@@ -25,14 +25,15 @@ class ReservationsController extends Controller
         }
 
         return view('movies.reservations.index', [
-            'reservations' => $user_reservations
+            'reservations' => $user_reservations,
+            'reservation_ids' => $reservations
         ]);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Store a newly created resource in storage.
      */
-    public function create()
+    public function store(Request $request)
     {
         $screentime = ScreenTimes::find(request()->screentime_id);
         
@@ -42,14 +43,6 @@ class ReservationsController extends Controller
         ]);
 
         return redirect()->back()->with('message', 'A foglalás sikeresen megtörtént!');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -81,6 +74,7 @@ class ReservationsController extends Controller
      */
     public function destroy(Reservations $reservations)
     {
-        //
+        Reservations::find(request()->reservation_id)->delete();
+        return redirect()->back()->with('message', 'A foglalás sikeresen törölve!');
     }
 }

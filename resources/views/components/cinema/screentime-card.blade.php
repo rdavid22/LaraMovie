@@ -9,7 +9,7 @@
                 </div>
                 <div class="flex flex-col">
                     <p class="font-bold text-red-500 text-md sm:text-md md:text-lg">Szabad ülőhelyek</p>
-                    <p>{{ $screen_time->seats }}</p>
+                    <p>{{ $screen_time->seats }} db.</p>
                 </div>
                 <div class="flex flex-col">
                     <p class="font-bold text-red-500 text-md sm:text-md md:text-lg">Vetítés típusa</p>
@@ -17,10 +17,10 @@
                 </div>
                 <div class="flex flex-col">
                     <p class="font-bold text-red-500 text-md sm:text-md md:text-lg">Ár</p>
-                    <p>{{ $screen_time->price }}</p>
+                    <p>{{ $screen_time->price }} Ft.</p>
                 </div>
                 <div class="my-auto">
-                    <form method="POST" action="{{ Route('reservations.create') }}">
+                    <form method="POST" action="{{ Route('reservations.store') }}">
                         @csrf
                         <input type="text" name="screentime_id" value="{{ $screen_time->id }}" hidden>
                         <button class="transition duration-150 ease-in-out hover:outline hover:outline-2 hover:rounded-sm hover:outline-red-500 p-1 font-bold text-red-500">Foglalás</button>

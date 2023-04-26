@@ -18,6 +18,7 @@
 <section id="movie_description"
     class="flex flex-col font-roboto tracking-widest max-w-screen-lg mx-auto space-y-5 flex-wrap min-h-screen text-xl items-center justify-center text-white pt-20 pb-10 md:pt-40 mt:pb-20 px-3 md:px-20">
 
+    <x-cinema.flash />
     {{-- Előző oldalak --}}
     <div class="text-lg self-start tracking-widest">
         <a href=" {{ Route('home') }} ">Kezdőlap &gt; </a>
