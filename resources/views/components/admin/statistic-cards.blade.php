@@ -1,28 +1,29 @@
 <div class="grid grid-flow-row gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-10">
-    <div
-        class="flex flex-row justify-between rounded-md p-6 shadow-lg border-l-8 text-black border-gray-800 bg-gradient-to-br from-green-500 to-green-300">
-        <div>
-            <h5 class="mb-2 text-xl font-bold leading-tight">
-                {{$income}} Ft.
-            </h5>
-            <p class="mb-4 text-lg">
-                Várható bevétel
-            </p>
+    <a href="{{Route('admin.finances')}}">
+        <div
+            class="flex flex-row justify-between rounded-md p-6 shadow-lg border-l-8 text-black border-gray-800 bg-gradient-to-br from-green-500 to-green-300">
+            <div>
+                <h5 class="mb-2 text-xl font-bold leading-tight">
+                    {{ $income }} Ft.
+                </h5>
+                <p class="mb-4 text-lg">
+                    Várható bevétel
+                </p>
+            </div>
+            <div class="my-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="black"
+                    class="w-10 h-10">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
+                </svg>
+            </div>
         </div>
-        <div class="my-auto">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="black"
-                class="w-10 h-10">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
-            </svg>
-        </div>
-    </div>
-
+    </a>
     <div
         class="flex flex-row justify-between rounded-md p-6 shadow-lg border-l-8 text-black border-gray-800 bg-gradient-to-br from-blue-400 to-blue-200">
         <div>
             <h5 class="mb-2 text-xl font-bold leading-tight">
-                {{$user_counter}}
+                {{ $user_counter }}
             </h5>
             <p class="mb-4 text-lg">
                 Felhasználók
@@ -41,7 +42,7 @@
         class="flex flex-row justify-between rounded-md p-6 shadow-lg border-l-8 text-black border-gray-800 bg-gradient-to-br from-orange-400 to-orange-100">
         <div>
             <h5 class="mb-2 text-xl font-bold leading-tight">
-                {{$movie_counter}} db.
+                {{ $movie_counter }} db.
             </h5>
             <p class="mb-4 text-lg">
                 Filmek
@@ -60,7 +61,7 @@
         class="flex flex-row justify-between rounded-md p-6 shadow-lg border-l-8 text-black border-gray-800 bg-gradient-to-br from-red-500 to-red-200">
         <div>
             <h5 class="mb-2 text-xl font-bold leading-tight">
-                {{$screentimes_counter}} db.
+                {{ $screentimes_counter }} db.
             </h5>
             <p class="mb-4 text-lg">
                 Vetítések

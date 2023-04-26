@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Movie;
+use App\Models\Reservations;
 use App\Models\ScreenTimes;
 use App\Models\User;
 
 class AdminController extends Controller
 {
+    // Shows the admin dashboard
     public function index()
     {
         return view(
@@ -21,6 +23,15 @@ class AdminController extends Controller
             ]
         );
     }
+
+    // Shows the financial page
+    public function finances()
+    {
+        return view('movies.admin.finances',[
+            'income' => getIncome(),
+            'reservations' => Reservations::with('user', 'screenTime')->get()
+        ]);
+    }
 }
 
 
@@ -30,7 +41,6 @@ function getIncome()
     $all_user = User::with('reservations')->get();
     $predicted_income = 0;
     foreach ($all_user as $user) {
-
         foreach ($user['reservations'] as $reservation) {
             $predicted_income += ScreenTimes::where('id', $reservation['screen_time_id'])->first()->price;
         }
