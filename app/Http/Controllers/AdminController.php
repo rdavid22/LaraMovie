@@ -29,7 +29,8 @@ class AdminController extends Controller
     {
         return view('movies.admin.finances', [
             'income' => getIncome(),
-            'reservations' => Reservations::with('user', 'screenTime')->get()
+            'reservations' => Reservations::with('user', 'screenTime')->get(),
+            'movie_titles' => getMovieTitlesFromReservations(),
         ]);
     }
 
@@ -41,25 +42,39 @@ class AdminController extends Controller
         ]);
     }
 
+    // Shows all movies
+    public function movies()
+    {
+        return view('movies.admin.movies', [
+            'movies' => Movie::get(),
+        ]);
+    }
+
     // Deletes a user from the model by the request parameter: 'id' 
     public function destroy_user()
     {
-        if(request()->is_admin)
-        {
+        if (request()->is_admin) {
             return redirect()->back()->with('message', 'Adminisztrátori fiókot nem lehet törölni!');
-        }
-        else {
+        } else {
             $user = User::find(request()->id);
             $user->delete();
             return redirect()->back()->with('message', 'Felhasználó sikeresen törölve!');
         }
     }
 
+    // Deletes a reservation from the user's model
     public function destroy_finance()
     {
         $reservation = Reservations::find(request()->id);
         $reservation->delete();
         return redirect()->back()->with('message', 'Foglalás sikeresen törölve!');
+    }
+
+    public function destroy_movie()
+    {
+        $movie = Movie::find(request()->id);
+        $movie->delete();
+        return redirect()->back()->with('message', 'Film sikeresen törölve!');
     }
 }
 
@@ -90,4 +105,15 @@ function getCountOfMovies()
 function getCountOfScreenTimes()
 {
     return ScreenTimes::count();
+}
+
+function getMovieTitlesFromReservations()
+{
+    $reservations = Reservations::with('screenTime')->get();
+    $titles = array();
+    foreach ($reservations as $reservation) {
+        $movie = Movie::find($reservation['screenTime']->movie_id);
+        array_push($titles, $movie->title);
+    }
+    return $titles;
 }
