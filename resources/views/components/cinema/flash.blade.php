@@ -9,7 +9,7 @@
 
 @if (Session()->has('message'))
     <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 5000)" x-show="show"
-        class="mt-44 bg-red-500 text-white p-5 w-auto text-center sm:mx-20 md:mx-36 lg:mx-60 xl:mx-96  rounded-lg ">
+        class="text-center mx-auto w-auto bg-red-500 text-white mb-10 p-5 rounded-lg">
         <p class="w-auto">
             {{ Session('message') }}
         </p>
