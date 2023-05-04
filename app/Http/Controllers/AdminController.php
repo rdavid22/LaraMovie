@@ -74,6 +74,8 @@ class AdminController extends Controller
     public function destroy_finance()
     {
         $reservation = Reservations::find(request()->id);
+        $related_screen_time = ScreenTimes::find($reservation->screen_time_id);
+        $related_screen_time->increment('seats');
         $reservation->delete();
         return redirect()->back()->with('message', 'Foglalás sikeresen törölve!');
     }

@@ -34,45 +34,36 @@ class ReservationsController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            'screentime_id' => 'required'
+        ]);
+
         $screentime = ScreenTimes::find(request()->screentime_id);
 
-        // Check if we really have available seats
-        // (Validated on frontend too)
-        if ($screentime['seats'] > 0) {
-
-            // Decrement available seats number by 1.
-            $screentime->decrement('seats');
-
-            $screentime->reservations()->create([
-                'screen_time_id' => $screentime->id,
-                'user_id' => request()->user()->id
-            ]);
-            return redirect()->back()->with('message', 'A foglalás sikeresen megtörtént!');
-        } else {
-            return redirect()->back()->with('message', 'Érvénytelen művelet!');
+        if ($screentime) {
+            if ($screentime['seats'] > 0) {
+                $screentime->decrement('seats');
+                $screentime->reservations()->create([
+                    'screen_time_id' => $screentime->id,
+                    'user_id' => request()->user()->id
+                ]);
+                return redirect()->back()->with('message', 'A foglalás sikeresen megtörtént!');
+            }
         }
+        return redirect()->back()->with('message', 'Érvénytelen művelet!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Reservations $reservations)
+    public function destroy(Reservations $reservation)
     {
-        // Find reservation in DB by id from input field
-        $reservation = Reservations::find(request()->reservation_id);
+        // Find screen time in DB by reservation related id & increment available seats
+        $related_screen_time = ScreenTimes::find($reservation->screen_time_id);
+        $related_screen_time->increment('seats');
 
-        if ($reservation) {
-            // Find screen time in DB by reservation related id & increment available seats
-            $related_screen_time = ScreenTimes::find($reservation->screen_time_id);
-            $related_screen_time->increment('seats');
-
-            // Destroy user reservation
-            $reservation->delete();
-            return redirect()->back()->with('message', 'A foglalás sikeresen törölve!');
-        }
-        else 
-        {
-            return redirect()->back()->with('message', 'Egy foglalást csak egyszer törölhet!');
-        }
+        // Destroy user reservation
+        $reservation->delete();
+        return redirect()->back()->with('message', 'A foglalás sikeresen törölve!');
     }
 }

@@ -46,8 +46,8 @@ Route::get('/filmek/{movie}', [MovieController::class, 'show']);
 // Reservation routes
 Route::middleware(['auth'])->group(function () {
     Route::get('/foglalasok', [ReservationsController::class, 'index'])->name('reservations.index');
-    Route::delete('/foglalasok/{reservation}', [ReservationsController::class, 'destroy'])->name('reservations.destroy');
     Route::post('/foglalasok/hozzaadas', [ReservationsController::class, 'store'])->name('reservations.store');
+    Route::delete('/foglalasok/{reservation:id}', [ReservationsController::class, 'destroy'])->name('reservations.destroy');
 });
 
 // ScreenTime routes
