@@ -18,15 +18,14 @@ class MovieController extends Controller
             // Filter through the db by the model's scope filter
             $query_result = Movie::latest()->filter(request(['kategoria', 'kereses']))->get();
 
-            // If it didn't found any movie with the parameters, returns a "not found" message
+            // If it didn't find any movie with the parameters, returns a "not found" message
             if (count($query_result) == 0) {
                 return view('movies.index', [
                     'genre_category' => request()->kategoria,
                     'error' => 'Nincs találat!'
                 ]);
-
             }
-            
+
             // If user called this route by the search filter, show the results
             elseif (request()->kereses) {
                 return view('movies.index', [
@@ -38,41 +37,27 @@ class MovieController extends Controller
             }
 
             // If user called this route by the category filter, show the results
-            else {
-                return view('movies.index', [
-                    'genre_category' => request()->kategoria,
-                    'movies' => $query_result
-                ]);
-            }
-        }
-        // Show all movie for the user
-        else {
             return view('movies.index', [
-                'movies' => Movie::latest()->simplePaginate(6)
+                'genre_category' => request()->kategoria,
+                'movies' => $query_result
             ]);
         }
+
+        // Show all movie for the user
+        return view('movies.index', [
+            'movies' => Movie::latest()->simplePaginate(6)
+        ]);
     }
 
     // Show single movie
-    public function show(string $movie_title)
+    public function show(Movie $movie)
     {
-        // Search through the database for the movie by title
-        $movie = Movie::where('title', $movie_title)->with('screenTimes')->first();
-        
-        // If eloquent founds one, returns it, else throws a 404
-        if ($movie) {
-            return view('movies.show', [
-                'movie' => $movie
-            ]);
-        } else {
-            abort(404);
-        }
+        return view('movies.show')->with('movie', $movie);
     }
 
     // Show Create Movie Form
     public function create()
     {
-        // Returns the create view
         return view('movies.create');
     }
 
@@ -121,19 +106,13 @@ class MovieController extends Controller
     }
 
     // Shows edit page
-    public function edit(string $movie_title)
+    public function edit(Movie $movie)
     {
-        // Search through database by the movie title 
-        $movie = Movie::where('title', $movie_title)->first();
-        
-        // Return view to user with the movie object
-        return view('movies.edit', [
-            'movie' => $movie,
-        ]);
+        return view('movies.edit')->with('movie', $movie);
     }
 
     // Updates a single movie
-    public function update()
+    public function update(Movie $movie)
     {
         // Validate fields
         $requestFields = request()->validate([
@@ -168,30 +147,25 @@ class MovieController extends Controller
         $requestFields['genre'] = $genre_str;
 
         // Search movie by id & update it with the request parameters
-        Movie::where('id', request()->id)->update($requestFields);
+        $movie->update($requestFields);
 
         // Redirect user with success message
         return to_route('admin.movies')->with('message', 'A(z) ' . '\'' . $requestFields['title'] . '\'' . ' sikeresen módosítva!');
     }
 
     // Deletes an entity from the database
-    public function destroy()
+    public function destroy(Movie $movie)
     {
-        // Search movie in db by id
-        $movie = Movie::find(request()->id);
-
-        // Delete movie instance from database
+        // Delete movie
         $movie->delete();
 
         // Delete small cover from storage
-        if($movie->cover && Storage::disk('public')->exists($movie->cover))
-        {
+        if ($movie->cover && Storage::disk('public')->exists($movie->cover)) {
             Storage::disk('public')->delete($movie->cover);
         }
 
         // Delete big cover from storage
-        if($movie->cover_big && Storage::disk('public')->exists($movie->cover_big))
-        {
+        if ($movie->cover_big && Storage::disk('public')->exists($movie->cover_big)) {
             Storage::disk('public')->delete($movie->cover_big);
         }
 

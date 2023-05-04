@@ -54,30 +54,6 @@ class ReservationsController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Reservations $reservations)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Reservations $reservations)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Reservations $reservations)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      */
     public function destroy(Reservations $reservations)
